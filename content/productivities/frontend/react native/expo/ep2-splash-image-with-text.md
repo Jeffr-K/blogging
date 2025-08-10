@@ -1,5 +1,8 @@
 ---
 title: Ep2. Splash 이미지 커스터마이징 하기
+date: 2025-08-10
+tags: [Expo, React Native, iOS, Splash Screen]
+author: Oscar
 ---
 
 # Preface
