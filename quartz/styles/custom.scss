@@ -2,22 +2,21 @@
 
 // put your custom CSS here!
 
-// Fira Code 폰트 및 리거처 설정
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
+// 이 부분이 올바른지 다시 확인하세요.
+// `{`와 `}`가 올바르게 짝을 이루고, 각 속성 끝에 세미콜론(`;`)이 있는지 확인
 pre > code {
-  font-family: 'Fira Code', 'IBM Plex Mono', 'JetBrains Mono', monospace;
-  font-feature-settings: "liga" on, "calt" on; // 리거처 활성화
+  font-family: 'Fira Code', 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  font-feature-settings: "liga" on, "calt" on;
 }
 
-// 탐색기와 목차의 폰트 스타일 설정
 .explorer,
 .table-of-contents {
   h3 {
-    font-weight: 400; // 헤더의 글자 두께를 얇게
+    font-weight: 400;
   }
-
   li {
-    font-weight: 300; // 목록 항목의 글자 두께를 더 얇게
+    font-weight: 300;
   }
 }
