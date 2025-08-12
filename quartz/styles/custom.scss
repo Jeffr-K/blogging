@@ -2,10 +2,10 @@
 
 // put your custom CSS here!
 
+// 모든 @import 규칙은 다른 CSS 규칙보다 먼저 와야 합니다.
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
-// 이 부분이 올바른지 다시 확인하세요.
-// `{`와 `}`가 올바르게 짝을 이루고, 각 속성 끝에 세미콜론(`;`)이 있는지 확인
+// 이 아래부터 일반 CSS 규칙을 작성합니다.
 pre > code {
   font-family: 'Fira Code', 'IBM Plex Mono', 'JetBrains Mono', monospace;
   font-feature-settings: "liga" on, "calt" on;
@@ -13,10 +13,10 @@ pre > code {
 
 .explorer,
 .table-of-contents {
-  h3 {
-    font-weight: 400;
-  }
-  li {
-    font-weight: 300;
-  }
+    h3 {
+        font-weight: 400;
+    }
+    li {
+        font-weight: 300;
+    }
 }
