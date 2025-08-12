@@ -19,7 +19,7 @@ author: oscar.rs
 
 # 그럼 어떻게 해결해야 할까?
 
-이 변경사항을 영구적으로 유지하기 위해 `Expo` 의 `Config Plugin` 을 만들어야 했습니다. `Config Plugin` 은 `prebuild` 가 실행될 때마다 `LaunchScreen.storyboard` 를 *프로그래밍 방식으로 수정하는 스크립트를 의미*합니다.
+이 변경사항을 영구적으로 유지하기 위해 `Expo` 의 `Config Plugin` 을 만들어야 했습니다. `Config Plugin` 은 `prebuild` 가 실행될 때마다 `LaunchScreen.storyboard` 를 <mark>프로그래밍 방식으로 수정하는 스크립트를 의미</mark>합니다.
 
 초급자에게 권장하는 쉬운 방법은 아니지만, Production Ready 상태의 앱을 구성하기 위해 필수적인 작업이었습니다.
 
