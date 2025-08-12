@@ -43,53 +43,29 @@ pre > code {
 }
 
 .toc {
-  font-family: "Pretendard", sans-serif !important;
-
-  li.depth-2 > a {
-    font-size: 0.95rem !important;
-    font-weight: 500 !important;
-    color: #333 !important;
+  /* 모든 목차 항목(a 태그)에 동일한 스타일 적용 */
+  li > a {
+    font-family: "Pretendard", sans-serif !important;
+    font-size: 0.9rem !important; // 전체 크기 통일
+    font-weight: 400 !important; // 전체 굵기 통일 (보통)
+    color: #333 !important; // 전체 색상 통일
   }
 
-  li.depth-3 > a {
-    font-size: 0.9rem !important;
-    font-weight: 400 !important;
-    color: #555 !important;
+  /* 들여쓰기로만 계층 구분 */
+  li.depth-3 {
     margin-left: 0.75rem;
   }
-
-  li.depth-4 > a {
-    font-size: 0.85rem !important;
-    font-weight: 400 !important;
-    color: #777 !important;
+  li.depth-4 {
     margin-left: 1.5rem;
   }
 
+  /* 다크 모드일 때 색상 조정 */
   [data-theme="dark"] & {
     h3 {
       color: #e5e5e5 !important;
     }
-    li.depth-2 > a {
-      color: #e5e5e5 !important;
-    }
-    li.depth-3 > a {
-      color: #c5c5c5 !important;
-    }
-    li.depth-4 > a {
-      color: #a5a5a5 !important;
+    li > a {
+      color: #d4d4d4 !important; // 다크모드 전체 색상 통일
     }
   }
-}
-
-// 4. 본문
-.popover-hint {
-  font-size: 1rem;
-  line-height: 1.7;
-  font-weight: 400;
-}
-
-.popover-hint h1,
-.popover-hint h2,
-.popover-hint h3 {
-  font-weight: 600;
 }
