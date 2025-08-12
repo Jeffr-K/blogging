@@ -9,7 +9,8 @@ const ArticleTitle: QuartzComponent = ({ fileData, displayClass }: QuartzCompone
     return (
       <div class={classNames(displayClass, "article-title-container")}>
         <h1 class={classNames(displayClass, "article-title")}>{title}</h1>
-        {author && <p class="article-author">by {author}</p>} {/* author가 있으면 표시합니다. */}
+        {author && <p class="article-author">author: {author}</p>}{" "}
+        {/* author가 있으면 표시합니다. */}
       </div>
     )
   } else {

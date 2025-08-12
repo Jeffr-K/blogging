@@ -2,7 +2,7 @@
 title: Ep2. Splash 이미지 커스터마이징 하기
 date: 2025-08-10
 tags: [Expo, React Native, iOS, Splash Screen]
-author: Oscar
+author: oscar.rs
 ---
 
 # Preface
@@ -108,7 +108,7 @@ const withIosSplashText = (config) => {
           `Custom splash screen template not found at: ${sourcePath}`
         );
       }
-      
+
       // 마스터 템플릿으로 Expo 기본 파일을 덮어쓰기
       fs.copyFileSync(sourcePath, destinationPath);
 
@@ -122,7 +122,7 @@ module.exports = withIosSplashText;
 
 ### 3. app.json 수정
 
-플러그인까지 만들었다면 이제 `app.json` 파일을 수정해야 합니다. 
+플러그인까지 만들었다면 이제 `app.json` 파일을 수정해야 합니다.
 
 ```json
 // <project-root>/app.json

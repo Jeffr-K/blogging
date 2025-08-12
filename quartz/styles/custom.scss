@@ -2,12 +2,37 @@
 
 // put your custom CSS here!
 
-.explorer,
-.table-of-contents {
-  h3 {
-    font-weight: 400;
+pre > code {
+  font-family: "Fira Code", "IBM Plex Mono", "JetBrains Mono", monospace;
+  font-feature-settings:
+    "liga" on,
+    "calt" on;
+}
+
+.explorer {
+  /* 파일명 링크 */
+  .explorer-ul a {
+    font-weight: 400; /* 보통 두께 */
+    font-size: 0.85rem;
   }
-  li {
-    font-weight: 300;
+
+  /* 폴더명 */
+  .folder-title {
+    font-weight: 500; /* 살짝 두꺼운 Medium 두께 */
+    font-size: 0.9rem;
+  }
+}
+
+.toc {
+  li.depth-2 {
+    margin-left: 1rem; /* H2는 1rem 들여쓰기 */
+  }
+
+  li.depth-3 {
+    margin-left: 2rem; /* H3는 2rem 들여쓰기 */
+  }
+
+  li.depth-4 {
+    margin-left: 3rem; /* H4는 3rem 들여쓰기 */
   }
 }
