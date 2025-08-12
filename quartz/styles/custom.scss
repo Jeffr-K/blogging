@@ -1,6 +1,20 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// 1. 전역 스타일
+body {
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
 
 pre > code {
   font-family: "Fira Code", "IBM Plex Mono", "JetBrains Mono", monospace;
@@ -9,54 +23,73 @@ pre > code {
     "calt" on;
 }
 
+// 2. 탐색기 (Explorer)
 .explorer {
-  /* 파일명 링크 */
   .explorer-ul a {
-    font-weight: 400; /* 보통 두께 */
+    font-weight: 400;
     font-size: 0.85rem;
   }
-
-  /* 폴더명 */
   .folder-title {
-    font-weight: 500; /* 살짝 두꺼운 Medium 두께 */
+    font-weight: 500;
     font-size: 0.9rem;
   }
 }
 
+// 3. 목차 (Table of Contents)
+.toc h3 {
+  font-family: "Pretendard", sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+}
+
 .toc {
-  /* H2 제목에 해당하는 목차 (가장 상위 레벨) */
+  font-family: "Pretendard", sans-serif !important;
+
   li.depth-2 > a {
-    font-size: 0.95rem; // 기본 크기
-    font-weight: 500; // 살짝 두꺼운 Medium 두께
-    color: #333; // 기본 텍스트 색상
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: #333 !important;
   }
 
-  /* H3 제목에 해당하는 목차 (한 단계 아래) */
   li.depth-3 > a {
-    font-size: 0.9rem; // 살짝 작게
-    font-weight: 400; // 보통 두께
-    color: #555; // 약간 더 연한 색상
-    margin-left: 0.75rem; // 들여쓰기
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    color: #555 !important;
+    margin-left: 0.75rem;
   }
 
-  /* H4 제목에 해당하는 목차 (두 단계 아래) */
   li.depth-4 > a {
-    font-size: 0.85rem; // 더 작게
-    font-weight: 400; // 보통 두께
-    color: #777; // 더 연한 회색
-    margin-left: 1.5rem; // 더 깊게 들여쓰기
+    font-size: 0.85rem !important;
+    font-weight: 400 !important;
+    color: #777 !important;
+    margin-left: 1.5rem;
   }
 
-  /* 다크 모드일 때 색상 조정 */
   [data-theme="dark"] & {
+    h3 {
+      color: #e5e5e5 !important;
+    }
     li.depth-2 > a {
-      color: #e5e5e5; // 밝은 흰색 계열
+      color: #e5e5e5 !important;
     }
     li.depth-3 > a {
-      color: #c5c5c5; // 밝은 회색 계열
+      color: #c5c5c5 !important;
     }
     li.depth-4 > a {
-      color: #a5a5a5; // 더 어두운 회색 계열
+      color: #a5a5a5 !important;
     }
   }
+}
+
+// 4. 본문
+.popover-hint {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.popover-hint h1,
+.popover-hint h2,
+.popover-hint h3 {
+  font-weight: 600;
 }
