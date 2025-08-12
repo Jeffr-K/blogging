@@ -69,3 +69,15 @@ pre > code {
     }
   }
 }
+
+/* 경고(Warning) 블록 커스텀 */
+.custom-block.warning {
+  border-left-color: #f0ad4e; /* 왼쪽 테두리 색상 */
+  background-color: rgba(240, 173, 78, 0.1); /* 옅은 배경색 */
+}
+
+/* 경고 블록의 제목 스타일 */
+.custom-block.warning .custom-block-title {
+  color: #f0ad4e;
+  font-weight: 600;
+}

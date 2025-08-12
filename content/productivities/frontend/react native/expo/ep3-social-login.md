@@ -15,3 +15,7 @@ function add(a: number, b: number): number {
   return a + b;
 }
 ```
+
+> [!WARNING] JSON 형식으로 변환할 수 없는 상태는 저장할 수 없습니다.
+>
+> [액션 분리](링크)에서 살펴본 `actions` 객체는 액션(함수)들만 가지므로, 단순히 빈 객체로 저장되어 각 액션(함수)을 사용할 수 없으니 주의합니다!
