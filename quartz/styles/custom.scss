@@ -1,3 +1,11 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+@use "./base.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+pre > code {
+  font-family: 'Fira Code', 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  font-feature-settings: "liga" on, "calt" on; // 리거처 활성화
+}
