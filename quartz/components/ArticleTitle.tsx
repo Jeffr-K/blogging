@@ -29,7 +29,7 @@ ArticleTitle.css = `
 
 .article-author {
   margin: 0.5rem 0 0 0;
-  font-style: italic;
+  font-style: normal;
   color: var(--darkgray);
 }
 `
