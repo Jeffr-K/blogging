@@ -24,15 +24,39 @@ pre > code {
 }
 
 .toc {
-  li.depth-2 {
-    margin-left: 1rem; /* H2는 1rem 들여쓰기 */
+  /* H2 제목에 해당하는 목차 (가장 상위 레벨) */
+  li.depth-2 > a {
+    font-size: 0.95rem; // 기본 크기
+    font-weight: 500; // 살짝 두꺼운 Medium 두께
+    color: #333; // 기본 텍스트 색상
   }
 
-  li.depth-3 {
-    margin-left: 2rem; /* H3는 2rem 들여쓰기 */
+  /* H3 제목에 해당하는 목차 (한 단계 아래) */
+  li.depth-3 > a {
+    font-size: 0.9rem; // 살짝 작게
+    font-weight: 400; // 보통 두께
+    color: #555; // 약간 더 연한 색상
+    margin-left: 0.75rem; // 들여쓰기
   }
 
-  li.depth-4 {
-    margin-left: 3rem; /* H4는 3rem 들여쓰기 */
+  /* H4 제목에 해당하는 목차 (두 단계 아래) */
+  li.depth-4 > a {
+    font-size: 0.85rem; // 더 작게
+    font-weight: 400; // 보통 두께
+    color: #777; // 더 연한 회색
+    margin-left: 1.5rem; // 더 깊게 들여쓰기
+  }
+
+  /* 다크 모드일 때 색상 조정 */
+  [data-theme="dark"] & {
+    li.depth-2 > a {
+      color: #e5e5e5; // 밝은 흰색 계열
+    }
+    li.depth-3 > a {
+      color: #c5c5c5; // 밝은 회색 계열
+    }
+    li.depth-4 > a {
+      color: #a5a5a5; // 더 어두운 회색 계열
+    }
   }
 }
