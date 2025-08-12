@@ -7,8 +7,6 @@ tags: ["OAuth", "OAuth 2.0", "React Native", "Expo"]
 
 # Preface
 
-#
-
 ```typescript
 function add(a: number, b: number): number {
   if (a === b) {
