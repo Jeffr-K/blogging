@@ -2,7 +2,7 @@
 title: Ep1. Expo 에서 iOS 스플래시 이미지가 업데이트되지 않을 때 방법
 date: 2025-08-10
 tags: [Expo, React Native, iOS, Splash Screen, Cache]
-author: Oscar
+author: oscar.rs
 ---
 
 # Preface
