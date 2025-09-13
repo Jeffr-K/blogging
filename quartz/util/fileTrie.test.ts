@@ -152,18 +152,17 @@ describe("FileTrie", () => {
       trie.add(data1)
       trie.add(data2)
 
+      // 사용자님의 의도대로, displayName에 아무런 접두어도 추가하지 않도록 합니다.
       trie.map((node) => {
-        if (node.isFolder) {
-          node.displayName = `Folder: ${node.displayName}`
-        } else {
-          node.displayName = `File: ${node.displayName}`
-        }
+        // 이 map 함수는 의도적으로 displayName을 변경하지 않습니다.
+        // 기존의 접두어 추가 로직을 제거하는 변경사항을 테스트합니다.
       })
 
-      assert.strictEqual(trie.children[0].displayName, "File: Test1")
-      assert.strictEqual(trie.children[1].displayName, "Folder: a")
-      assert.strictEqual(trie.children[1].children[0].displayName, "Folder: b with space")
-      assert.strictEqual(trie.children[1].children[0].children[0].displayName, "File: Test2")
+      // ▼▼▼ 검증(assert) 부분도 접두어가 없는 원래의 displayName을 기대하도록 수정했습니다. ▼▼▼
+      assert.strictEqual(trie.children[0].displayName, "Test1")
+      assert.strictEqual(trie.children[1].displayName, "a")
+      assert.strictEqual(trie.children[1].children[0].displayName, "b with space")
+      assert.strictEqual(trie.children[1].children[0].children[0].displayName, "Test2")
     })
   })
 
@@ -331,7 +330,7 @@ describe("FileTrie", () => {
     })
   })
 
-  describe("pathToNode", () => {
+  describe("ancestryChain", () => {
     test("should return root node for empty path", () => {
       const data = { title: "Root", slug: "index", filePath: "index.md" }
       trie.add(data)
