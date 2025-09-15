@@ -36,8 +36,28 @@ public interface StructuredOutputConverter<T> extends FormatProvider, Converter<
 
 # T로 변환(BeanOutputConverter)
 
+LLM 의 출력을 T 객체로 변환하고 싶다면 BeanOutputConverter<T> 를 사용할 수 있다. T 는 변환활 자바 타입이다. 이 변환기는 LLM 이 JSON 출력을 할 수 있도록 지침을 생성하고 LLM 의 출력을 T 객체로 변환한다.
+
+```java
+
+```
+
 # List<T> 로 변환(BeanOutputConverter)
+
+LLM 의 출력을 List<T> 객체로 변환하고 싶을 때 BeanOutputConverter<List<T>> 를 사용할 수 있다. T는 변환할 자바 타입이다. 이 변환기는 LLM 이 JSON 출력을 할 수 있도록 지침을 생성하고 LLM 출력을 List<T> 로 변환한다.
+
+```java
+
+```
 
 # Map 으로 변환: MapOutputConverter
 
+LLM 의 출력을 Map<String, Object> 객체로 변환하고 싶다면 MapOutputConverter 를 사용할 수 있다. 이 변환기는 LLM 이 JSON 출력을 할 수 있도록 지침을 생성하고, LLM 의 출력을 Map<String, Object> 로 변환한다.
+
+```java
+
+```
+
 # 시스템 메세지와 함께 사용
+
+LLM 에게 지시할 내용은 일반적으로 시스템 메세지에 포함시키지만 entity() 는 사용자 메세지에 출력 형식 지침을 포함시킨다. LLM 의 출력 형식 지침을 두 메세지에 포함시킬 수 있는데, 서술식 설명과 예시는 시스템 메세지에서 1차 지침으로 주고 entity() 로 구체적인 타입 정보를 제공해서 좀 더 정확한 JSON 을 출력하도록 2차 지침을 주면 구조화된 출력 기능은 더욱 강력해진다.
