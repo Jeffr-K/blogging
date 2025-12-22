@@ -590,3 +590,98 @@ fn main() {
 그래서 러스트에서는 `fp-ts` 같은 라이브러리 없이도 메서드 체이닝(obj.func()) 만으로 충분한 확장성을 누릴 수 있는 것이다.
 
 반면, 타입스크립트는 언어 구조상 클래스를 직접 수정할 수 없기에 그 대안으로 `fp-ts` 같은 함수형 라이브러리를 써서 확장성을 확보하는 것이다.
+
+### 쉽지 않은 함수 합성
+
+입력과 출력이 일치하는 두 함수 합성은 매우 간단했다. 하지만 입출력이 쉽게 맞지 않을때는 어떻게 해야할까?
+
+기본적으로 입출력 타입은 통하지만 모양이 다른 경우가 일반적이다. 예를 들어 앞 함수는 Option<i32> 를 출력하지만 그 다음 함수가 i32 를 필요로 한다면?
+
+사실 함수 합성에서 발생하는 가장 많은 문제는 함수의 입력과 출력을 조정하여 맞추는 과정에서 일어난다.
+
+인기 있는 방식 중 하나는 양쪽을 동일한 타입으로 변환하는 것이다. 다시 말하면 양쪽 모두에서 공통적으로 사용할 수 있는 `최소 공배수` 를 찾아내는 것이다.
+
+예를 들면 출력이 i32 이고 입력이 Option<i32> 인 경우, 두 타입을 모두 포함하는 가장 작은 타입은 Option<i32> 이다.
+
+따라서 함수 A 의 출력을 Some 으로 변환하면 함수 B 의 Option 입력값으로 사용할 수 있기 때문에 합성이 가능하다는 것이다.
+
+이러한 타입의 '모양'을 맞추는 과정을 보통 함수형 프로그래밍에서는 이를 `Lifting` 이라고 부르기도 한다.
+
+##### 어댑터를 이용한 타입 맞추기
+
+```rust
+// 함수 A: 평범한 i32를 반환한다.
+fn double(x: i32) -> i32 {
+    x * 2
+}
+
+// 함수 B: Option<i32>를 입력으로 받아 문자열로 변환한다.
+fn display_maybe_result(val: Option<i32>) -> String {
+    match val {
+        Some(v) => format!("최종 결과값은 {}입니다.", v),
+        None => "결과가 없습니다.".to_string(),
+    }
+}
+
+fn main() {
+    // 함수 A의 출력(i32)을 B의 입력(Option<i32>)에 맞추기 위해 
+    // 중간에 Some()으로 감싸는 '어댑터' 역할을 하는 클로저를 통해 합성한다.
+    let composed = |x| display_maybe_result(Some(double(x)));
+
+    let result = composed(10);
+    println!("{}", result); // "최종 결과값은 20입니다."
+}
+```
+
+##### 메서드 체이닝으로 구현하는 타입 어댑터
+
+이 코드는 i32를 반환하는 함수와 Option<i32>를 받는 함수를 메서드 체인(.)으로 연결하는 방법을 보여준다.
+
+```rust
+// 1. 기능을 정의할 트레이트들 (타입 시그니처 명시)
+trait MathExt {
+    fn double(self) -> i32;
+}
+
+trait AdapterExt {
+    fn lift_some(self) -> Option<i32>;
+}
+
+trait DisplayExt {
+    fn display(self) -> String;
+}
+
+// 2. i32 타입에 대한 구현
+impl MathExt for i32 {
+    fn double(self) -> i32 {
+        self * 2
+    }
+}
+
+impl AdapterExt for i32 {
+    /// i32를 Option<i32>라는 '최소 공배수 타입'으로 격상시킨다.
+    fn lift_some(self) -> Option<i32> {
+        Some(self)
+    }
+}
+
+// 3. Option<i32> 타입에 대한 구현
+impl DisplayExt for Option<i32> {
+    fn display(self) -> String {
+        match self {
+            Some(v) => format!("결과값: {}", v),
+            None => "값이 없습니다".to_string(),
+        }
+    }
+}
+
+fn main() {
+    // 4. 이제 모든 함수가 메서드 체이닝으로 연결된다.
+    let result = 10
+        .double()     // i32 반환
+        .lift_some()  // Option<i32>로 변환 (어댑터 역할)
+        .display();   // String 반환
+
+    println!("{}", result); // "결과값: 20"
+}
+```
