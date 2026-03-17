@@ -8,8 +8,8 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
-    pageTitleSuffix: "",
+    pageTitle: "anonymous.rs",
+    pageTitleSuffix: "익명이의 사생활",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
