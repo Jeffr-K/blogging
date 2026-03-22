@@ -7,7 +7,7 @@ tags: ["react", "react-query", "useQuery", "데이터페칭", "캐싱"]
 
 # `useQuery`: 데이터 가져오기의 기본
 
-`useQuery`는 React Query의 핵심 훅입니다. 서버에서 데이터를 가져오고, 캐싱하고, 상태를 관리합니다.
+`useQuery`는 React Query의 핵심 훅입니다. 서버 상태를 가져오고, 클라이언트와 동기화하고, 로딩/에러 상태를 관리합니다.
 
 ## 기본 사용법
 
