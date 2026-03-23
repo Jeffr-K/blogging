@@ -29,7 +29,7 @@ const useCountStore = create(
 );
 ```
 
-`set`의 세 번째 인자로 액션 이름을 지정하면 DevTools에서 어떤 액션이 상태를 바꿨는지 추적할 수 있습니다.
+`set`의 세 번째 인자로 액션 이름을 지정하면 `DevTools` 에서 어떤 액션이 상태를 바꿨는지 추적할 수 있습니다.
 
 ```
 DevTools에서 보이는 것:
@@ -206,7 +206,7 @@ const useBearStore = create<BearState>()(
 );
 ```
 
-TypeScript를 쓸 때는 `create<Type>()(...)` 형태로 타입을 명시합니다. 미들웨어가 있으면 `create<Type>()` 뒤에 바로 미들웨어를 감쌉니다.
+TypeScript 를 쓸 때는 `create<Type>()(...)` 형태로 타입을 명시합니다. 미들웨어가 있으면 `create<Type>()` 뒤에 바로 미들웨어를 감쌉니다.
 
 ## 정리
 
@@ -216,4 +216,4 @@ TypeScript를 쓸 때는 `create<Type>()(...)` 형태로 타입을 명시합니�
 | `persist` | localStorage 영속화 | `name`: 키, `partialize`: 저장할 것 |
 | `immer` | 직접 수정 문법 허용 | 없음 |
 
-세 가지 모두 실무에서 자주 쓰입니다. `devtools`는 개발 편의를 위해, `persist`는 새로고침 후 상태 복원을, `immer`는 중첩 상태 업데이트를 간결하게 만들어줍니다.
+세 가지 모두 실무에서 자주 쓰입니다. `devtools` 는 개발 편의를 위해, `persist` 는 새로고침 후 상태 복원을, `immer` 는 중첩 상태 업데이트를 간결하게 만들어줍니다.

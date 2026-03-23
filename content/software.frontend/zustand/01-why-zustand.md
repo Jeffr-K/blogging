@@ -1,5 +1,5 @@
 ---
-title: "[Zustand 시리즈] 1. 왜 Zustand인가: 간결한 전역 상태 관리"
+title: "[Zustand 시리즈] 1. 왜 Zustand 인가: 간결한 전역 상태 관리"
 author: oscar.rs
 date: 2026-03-22
 tags: ["react", "zustand", "상태관리", "전역상태"]

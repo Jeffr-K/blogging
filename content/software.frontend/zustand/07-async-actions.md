@@ -7,7 +7,7 @@ tags: ["react", "zustand", "async", "비동기", "로딩", "에러처리"]
 
 # 비동기 액션: API 호출과 로딩/에러 상태 관리
 
-Zustand는 Redux와 달리 별도의 미들웨어 없이 스토어 안에 바로 비동기 함수를 정의할 수 있습니다. 간단하지만 패턴을 잡아두면 일관되게 사용할 수 있습니다.
+`Zustand` 는 `Redux` 와 달리 별도의 미들웨어 없이 스토어 안에 바로 비동기 함수를 정의할 수 있습니다. 간단하지만 패턴을 잡아두면 일관되게 사용할 수 있습니다.
 
 ## 기본 비동기 액션
 
@@ -217,7 +217,7 @@ const useStore = create((set) => ({
 
 ## Zustand vs React Query: 비동기 상태를 어디서?
 
-Zustand에서도 비동기 상태를 관리할 수 있지만, **서버 데이터 fetching에는 React Query가 더 적합**합니다.
+`Zustand` 에서도 비동기 상태를 관리할 수 있지만, **서버 데이터 fetching 에는 React Query가 더 적합**합니다.
 
 | | Zustand | React Query |
 |--|---------|------------|
@@ -233,4 +233,4 @@ Zustand에서도 비동기 상태를 관리할 수 있지만, **서버 데이터
 
 - Zustand 액션에서 `async/await`을 그냥 쓸 수 있습니다
 - 로딩/에러 상태를 액션 안에서 함께 관리합니다
-- 서버 데이터 fetching이 주 목적이라면 React Query와의 역할 분리를 고려하세요
+- 서버 데이터 `fetching` 이 주 목적이라면 `React Query` 와의 역할 분리를 고려하세요
