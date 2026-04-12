@@ -1,0 +1,43 @@
+Schema to Pretty Printer
+The Pretty.make function is used to create pretty printers that generate a formatted string representation of values based on a schema.
+
+Example (Pretty Printer for a Struct Schema)
+
+import { Pretty, Schema } from "effect"
+
+const Person = Schema.Struct({
+  name: Schema.String,
+  age: Schema.Number
+})
+
+// Create a pretty printer for the schema
+const PersonPretty = Pretty.make(Person)
+
+// Format and print a Person object
+console.log(PersonPretty({ name: "Alice", age: 30 }))
+/*
+Output:
+'{ "name": "Alice", "age": 30 }'
+*/
+
+
+Customizing Pretty Printer Generation
+You can customize how the pretty printer formats output by using the pretty annotation within your schema definition.
+
+The pretty annotation takes any type parameters provided (typeParameters) and formats the value into a string.
+
+Example (Custom Pretty Printer for Numbers)
+
+import { Pretty, Schema } from "effect"
+
+// Define a schema with a custom pretty annotation
+const schema = Schema.Number.annotations({
+  pretty: (/**typeParameters**/) => (value) => `my format: ${value}`
+})
+
+// Create the pretty printer
+const customPrettyPrinter = Pretty.make(schema)
+
+// Format and print a value
+console.log(customPrettyPrinter(1))
+// Output: "my format: 1"
